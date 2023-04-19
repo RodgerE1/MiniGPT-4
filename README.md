@@ -1,4 +1,3 @@
-Messing around with...
 # MiniGPT-4: Enhancing Vision-language Understanding with Advanced Large Language Models
 [Deyao Zhu](https://tsutikgiau.github.io/)* (On Job Market!), [Jun Chen](https://junchen14.github.io/)* (On Job Market!), [Xiaoqian Shen](https://xiaoqian-shen.github.io), [Xiang Li](https://xiangli.ac.cn), and [Mohamed Elhoseiny](https://www.mohamed-elhoseiny.com/). *Equal Contribution
 
@@ -82,7 +81,7 @@ in [eval_configs/minigpt4_eval.yaml](eval_configs/minigpt4_eval.yaml#L10) at Lin
 Try out our demo [demo.py](demo.py) on your local machine by running
 
 ```
-python demo.py --cfg-path eval_configs/minigpt4_eval.yaml
+python demo.py --cfg-path eval_configs/minigpt4_eval.yaml  --gpu-id 0
 ```
 
 Here, we load Vicuna as 8 bit by default to save some GPU memory usage. 
@@ -110,6 +109,11 @@ You can change the save path in the config file
 ```bash
 torchrun --nproc-per-node NUM_GPU train.py --cfg-path train_configs/minigpt4_stage1_pretrain.yaml
 ```
+
+A MiniGPT-4 checkpoint with only stage one training can be downloaded 
+[here](https://drive.google.com/file/d/1u9FRRBB3VovP1HxCAlpD9Lw4t4P6-Yq8/view?usp=share_link).
+Compared to the model after stage two, this checkpoint generate incomplete and repeated sentences frequently.
+
 
 **2. Second finetuning stage**
 
